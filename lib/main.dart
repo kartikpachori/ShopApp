@@ -7,12 +7,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       title: 'MyShop',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.deepOrange,
+        fontFamily: 'Lato',
         appBarTheme: AppBarTheme(
-          color: Color.fromARGB(255, 250, 71, 71),
+          color: Color.fromARGB(255, 75, 62, 251),
         ),
       ),
       home: ProductsOverviewScreen(),
