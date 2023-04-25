@@ -5,32 +5,18 @@ import 'package:provider/provider.dart';
 import '../providers/product.dart';
 
 class ProductItem extends StatelessWidget {
-  //final String id;
-  //final String title;
-  //final String imageUrl;
-
-  //ProductItem(this.id, this.title, this.imageUrl);
-
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[800], // set the background color
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 20,
-            offset: Offset(1, 5), // set the drop shadow offset
-          ),
-        ],
-      ),
+    final product = Provider.of<Product>(context, listen: false);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
       child: GridTile(
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(ProductDetailScreen.routeName,
-                arguments: product.id);
+            Navigator.of(context).pushNamed(
+              ProductDetailScreen.routeName,
+              arguments: product.id,
+            );
           },
           child: Image.network(
             product.imageUrl,
@@ -41,13 +27,16 @@ class ProductItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: GridTileBar(
             backgroundColor: Colors.black87,
-            leading: IconButton(
-              icon: Icon(
-                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
-              onPressed: () {
-                product.toggleFavoriteStatus();
-              },
-              color: Theme.of(context).accentColor,
+            leading: Consumer<Product>(
+              builder: (ctx, product, child) => IconButton(
+                icon: Icon(
+                  product.isFavorite ? Icons.favorite : Icons.favorite_border,
+                ),
+                onPressed: () {
+                  product.toggleFavoriteStatus();
+                },
+                color: Theme.of(context).accentColor,
+              ),
             ),
             title: Text(
               product.title,
