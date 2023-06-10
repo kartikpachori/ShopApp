@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'MyShop',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
+          primarySwatch: Colors.blue,
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
           appBarTheme: AppBarTheme(
