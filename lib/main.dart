@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shoppingapp/screens/cart_screen.dart';
 import 'package:shoppingapp/screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import './providers/products.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import './providers/cart.dart';
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'MyShop',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
           appBarTheme: AppBarTheme(
@@ -31,7 +33,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: ProductsOverviewScreen(),
-        routes: {ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()},
+        routes: {
+          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          CartScreen.routeName: (ctx) => CartScreen(),
+        },
       ),
     );
   }
