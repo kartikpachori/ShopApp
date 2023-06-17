@@ -26,10 +26,9 @@ class MyApp extends StatelessWidget {
         title: 'MyShop',
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
-          accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
           appBarTheme: AppBarTheme(
-            color: Color.fromARGB(255, 75, 62, 251),
+            color: Color.fromARGB(229, 7, 106, 187),
           ),
         ),
         home: ProductsOverviewScreen(),

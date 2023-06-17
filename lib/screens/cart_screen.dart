@@ -11,7 +11,7 @@ class CartScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Cart'),
+        title: Text('My Cart'),
       ),
       body: Column(
         children: <Widget>[
@@ -23,35 +23,43 @@ class CartScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Total',
+                    'Amount   :',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 12,
                   ),
-                  Spacer(),
-                  Chip(
-                    label: Text(
-                      '\$${cart.totalAmount}',
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .primaryTextTheme
-                              .titleLarge!
-                              .color),
+                  Text(
+                    '\u{20B9}${cart.totalAmount}',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                    backgroundColor: Color.fromARGB(255, 75, 62, 251),
                   ),
-                  TextButton(
+                  //backgroundColor: Color.fromARGB(255, 245, 105, 95),
+
+                  Spacer(),
+                  ElevatedButton(
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromARGB(255, 75, 62, 251),
+                        Colors.white,
                       ),
+                      textStyle: MaterialStateProperty.all<TextStyle>(
+                        TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromARGB(206, 214, 28, 28),
+                      ),
+                      elevation: MaterialStateProperty.all<double>(0),
                     ),
                     onPressed: () {},
                     child: Text('ORDER NOW'),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -64,6 +72,7 @@ class CartScreen extends StatelessWidget {
               itemCount: cart.items.length,
               itemBuilder: (ctx, i) => CartItem(
                   cart.items.values.toList()[i].id,
+                  cart.items.keys.toList()[i],
                   cart.items.values.toList()[i].price,
                   cart.items.values.toList()[i].quantity,
                   cart.items.values.toList()[i].title),

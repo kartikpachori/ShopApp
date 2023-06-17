@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shoppingapp/screens/product_detail_screen.dart';
-import 'package:shoppingapp/screens/products_overview_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/product.dart';
 import '../providers/cart.dart';
@@ -28,7 +27,7 @@ class ProductItem extends StatelessWidget {
         footer: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: GridTileBar(
-            backgroundColor: Colors.black87,
+            backgroundColor: Color.fromARGB(179, 0, 0, 0),
             leading: Consumer<Product>(
               builder: (ctx, product, child) => IconButton(
                 icon: Icon(
@@ -37,7 +36,7 @@ class ProductItem extends StatelessWidget {
                 onPressed: () {
                   product.toggleFavoriteStatus();
                 },
-                color: Theme.of(context).accentColor,
+                color: Colors.deepOrangeAccent,
               ),
             ),
             title: Text(
@@ -49,7 +48,7 @@ class ProductItem extends StatelessWidget {
               onPressed: () {
                 cart.addItem(product.id, product.price, product.title);
               },
-              color: Theme.of(context).accentColor,
+              color: Colors.deepOrangeAccent,
             ),
           ),
         ),
