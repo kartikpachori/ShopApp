@@ -43,7 +43,8 @@ flutter_launcher_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  provider: ^6.0.5  
+  provider: ^6.0.5 
+  intl: ^0.18.1 
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
