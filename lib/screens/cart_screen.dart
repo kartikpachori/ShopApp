@@ -33,7 +33,7 @@ class CartScreen extends StatelessWidget {
                     width: 12,
                   ),
                   Text(
-                    '\u{20B9}${cart.totalAmount}',
+                    '\u{20B9}${cart.totalAmount.toStringAsFixed(2)}',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
