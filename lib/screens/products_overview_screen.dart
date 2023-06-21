@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' hide Badge;
+import 'package:shoppingapp/widgets/app_drawer.dart';
 
 //import '../models/product.dart';
 import '../widgets/products_grid.dart';
@@ -71,6 +72,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductsGrid(_showOnlyFavorites),
       //body: ProductsGrid(),
     );
