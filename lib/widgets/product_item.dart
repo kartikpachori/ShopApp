@@ -53,7 +53,7 @@ class ProductItem extends StatelessWidget {
                     content: Text('Added iteam to cart!'),
                     duration: Duration(seconds: 2),
                     action: SnackBarAction(
-                        label: 'UNDO',
+                        label: 'Undo',
                         onPressed: () {
                           cart.removeSingleItem(product.id);
                         }),
