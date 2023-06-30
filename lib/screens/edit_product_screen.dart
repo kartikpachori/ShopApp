@@ -9,6 +9,8 @@ class EditProductScreen extends StatefulWidget {
 }
 
 class _EditProductScreenState extends State<EditProductScreen> {
+  final _priceFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +30,20 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   ),
                 ),
                 textInputAction: TextInputAction.next,
+                onFieldSubmitted: (_) {
+                  FocusScope.of(context).requestFocus(_priceFocusNode);
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Price',
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.number,
+                focusNode: _priceFocusNode,
               ),
             ],
           ),
