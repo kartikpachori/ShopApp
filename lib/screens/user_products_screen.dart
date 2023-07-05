@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoppingapp/screens/edit_product_screen.dart';
+import './edit_product_screen.dart';
 import 'package:shoppingapp/widgets/app_drawer.dart';
 import '../providers/products.dart';
 import 'package:provider/provider.dart';
