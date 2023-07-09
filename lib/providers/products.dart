@@ -100,9 +100,20 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
+  Future<void> fetchAndSetProducts() async {
+    final url = Uri.https(
+        'new-project-72be3-default-rtdb.firebaseio.com', '/products.json');
+    try {
+      final response = await http.get(url);
+      print(json.decode(response.body));
+    } catch (error) {
+      throw (error);
+    }
+  }
+
   Future<void> addProduct(Product product) async {
-    final url =
-        Uri.https('new-project-72be3-default-rtdb.firebaseio.com', '/products');
+    final url = Uri.https(
+        'new-project-72be3-default-rtdb.firebaseio.com', '/products.json');
     try {
       final response = await http.post(
         url,
