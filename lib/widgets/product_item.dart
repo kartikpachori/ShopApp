@@ -29,7 +29,7 @@ class ProductItem extends StatelessWidget {
           child: GridTileBar(
             backgroundColor: Color.fromARGB(179, 0, 0, 0),
             leading: Consumer<Product>(
-              builder: (ctx, product, child) => IconButton(
+              builder: (ctx, product, _) => IconButton(
                 icon: Icon(
                   product.isFavorite ? Icons.favorite : Icons.favorite_border,
                 ),
