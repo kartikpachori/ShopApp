@@ -40,33 +40,8 @@ class CartScreen extends StatelessWidget {
                       fontSize: 18,
                     ),
                   ),
+                  OrderButton(cart: cart),
                   //backgroundColor: Color.fromARGB(255, 245, 105, 95),
-
-                  Spacer(),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                        Colors.white,
-                      ),
-                      textStyle: MaterialStateProperty.all<TextStyle>(
-                        TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromARGB(206, 214, 28, 28),
-                      ),
-                      elevation: MaterialStateProperty.all<double>(0),
-                    ),
-                    onPressed: () {
-                      Provider.of<Orders>(context, listen: false).addOrder(
-                        cart.items.values.toList(),
-                        cart.totalAmount,
-                      );
-                      cart.clear();
-                    },
-                    child: Text('ORDER NOW'),
-                  ),
                 ],
               ),
             ),
@@ -87,6 +62,59 @@ class CartScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class OrderButton extends StatefulWidget {
+  const OrderButton({
+    Key? key,
+    required this.cart,
+  }) : super(key: key);
+
+  final Cart cart;
+
+  @override
+  _OrderButtonState createState() => _OrderButtonState();
+}
+
+class _OrderButtonState extends State<OrderButton> {
+  var _isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: _isLoading ? CircularProgressIndicator() : Text('ORDER NOW'),
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Colors.white,
+        ),
+        textStyle: MaterialStateProperty.all<TextStyle>(
+          TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(206, 214, 28, 28),
+        ),
+        elevation: MaterialStateProperty.all<double>(0),
+      ),
+      onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
+          ? null
+          : () async {
+              setState(() {
+                _isLoading = true;
+              });
+              await Provider.of<Orders>(context, listen: false).addOrder(
+                widget.cart.items.values.toList(),
+                widget.cart.totalAmount,
+              );
+              setState(() {
+                _isLoading = false;
+              });
+              widget.cart.clear();
+            },
+      //textColor: Theme.of(context).primaryColor,
     );
   }
 }
