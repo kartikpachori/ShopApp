@@ -49,7 +49,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         backgroundColor: Color.fromARGB(255, 197, 233, 249),
         appBar: AppBar(
           title: Text(
-            'E Shop',
+            'E-Shop',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
