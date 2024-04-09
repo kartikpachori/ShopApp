@@ -43,7 +43,7 @@ flutter_launcher_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  provider: ^6.0.5 
+  provider: ^6.0.5
   intl: ^0.18.1
   http: ^1.1.0 
  
