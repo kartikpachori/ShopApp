@@ -31,13 +31,13 @@ class Products with ChangeNotifier {
   }
 
   Future<void> fetchAndSetProducts() async {
-    // print('Token: $authToken');
     var url = Uri.https(
         'new-project-72be3-default-rtdb.firebaseio.com', '/products.json', {
       'auth': authToken,
       'orderBy': "\"creatorId\"",
       'equalTo': "\"$userId\""
     });
+
     try {
       // final response = await http.get(url);
       // final extractedData = json.decode(response.body) as Map<String, dynamic>;
