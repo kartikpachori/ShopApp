@@ -236,7 +236,7 @@ class _AuthCardState extends State<AuthCard>
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value!.isEmpty || !value.contains('@')) {
-                      return 'Invalid email!';
+                      return 'Invalid email!!';
                     }
                     return null;
                   },
