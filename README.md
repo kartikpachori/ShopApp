@@ -51,7 +51,7 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
+##Screenshot
 <span>
 <img src="https://github.com/kartikpachori/ShopApp/blob/main/assets/images/Pick1.jpg" width="18%" height="45%">
 <img src="https://github.com/kartikpachori/ShopApp/blob/main/assets/images/Pick2.jpg" width="18%" height="45%">
